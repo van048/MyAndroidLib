@@ -13,7 +13,7 @@ public abstract class BaseEntryActivity extends BaseActivity {
         if (beforeOnBackPressed()) {
             long currentTick = System.currentTimeMillis();
             if (currentTick - lastBackKeyDownTick > MAX_DOUBLE_BACK_DURATION) {
-                ToastUtils.init(false);
+                ToastUtils.init(true);
                 ToastUtils.showShortToast(this, R.string.click_one_more_time_to_exit);
                 lastBackKeyDownTick = currentTick;
             } else {

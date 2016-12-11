@@ -1,17 +1,15 @@
 package ben.cn.library.activity.base;
 
-import android.content.Intent;
-import android.os.Bundle;
 import android.os.Handler;
 
-public abstract class BaseSplashActivity extends BaseActivity {
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        setTheme(getSplashTheme());
-        super.onCreate(savedInstanceState);
-    }
+import ben.cn.library.R;
 
-    protected abstract int getSplashTheme();
+public abstract class BaseSplashActivity extends BaseActivity {
+
+    @Override
+    protected int getThemeResourceID() {
+        return R.style.DefaultSplashTheme;
+    }
 
     @Override
     protected void setUpView() {
@@ -19,7 +17,7 @@ public abstract class BaseSplashActivity extends BaseActivity {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                startActivity(new Intent(BaseSplashActivity.this, getJumpingActivityClass()));
+                startActivityWithoutExtras(getJumpingActivityClass());
                 finish();
             }
         }, getSplashDuration());

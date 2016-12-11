@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="DefaultAppTheme" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/defaultColorPrimary</item>
+        <item name="colorPrimaryDark">@color/defaultColorPrimaryDark</item>
+        <item name="colorAccent">@color/defaultColorAccent</item>
+        <item name="android:textColor">@color/defaultAndroidTextColor</item>
+        <item name="android:textColorSecondary">@color/defaultAndroidTextColorSecondary</item>
+        <item name="android:icon">@color/defaultAndroidIcon</item>
+        <item name="android:divider">@color/defaultAndroidDivider</item>
+    </style>
+
+    <style name="DefaultSplashTheme" parent="DefaultFullScreenTheme">
+        <item name="android:windowBackground">@drawable/default_bg_splash</item>
+    </style>
+
+    <style name="DefaultFullScreenTheme" parent="DefaultAppTheme">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+    </style>
+</resources>

@@ -2,14 +2,16 @@ package ben.cn.library.activity.base;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+
+import ben.cn.library.R;
 
 public abstract class BaseActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTheme(getThemeResourceID());
         super.onCreate(savedInstanceState);
 
         init(savedInstanceState);
@@ -18,8 +20,13 @@ public abstract class BaseActivity extends AppCompatActivity {
         setUpData();
     }
 
-    /***
-     * 用于在初始化View之前做一些事
+    protected int getThemeResourceID() {
+        return R.style.DefaultAppTheme;
+    }
+
+    /**
+     * initialize before setContentView
+     * @param savedInstanceState param from onCreate
      */
     protected void init(Bundle savedInstanceState) {
 
@@ -27,7 +34,9 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     protected abstract int getLayoutResourceID();
 
-    protected abstract void setUpView();
+    protected void setUpView() {
+
+    }
 
     protected void setUpData() {
 
@@ -49,16 +58,5 @@ public abstract class BaseActivity extends AppCompatActivity {
         Intent intent = new Intent(this, clazz);
         intent.putExtras(extras);
         startActivity(intent);
-    }
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-
-        switch (requestCode) {
-            case 1:
-
-                break;
-        }
     }
 }

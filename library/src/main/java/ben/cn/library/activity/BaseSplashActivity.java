@@ -4,7 +4,7 @@ import android.os.Handler;
 
 import ben.cn.library.R;
 
-public abstract class SplashActivity extends BaseActivity {
+public abstract class BaseSplashActivity extends BaseActivity {
 
     @Override
     protected int getThemeResourceID() {

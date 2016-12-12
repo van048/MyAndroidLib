@@ -1,4 +1,4 @@
-package ben.cn.library.activity.base;
+package ben.cn.library.activity;
 
 import android.content.Intent;
 import android.os.Bundle;

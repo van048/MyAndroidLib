@@ -26,6 +26,7 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     /**
      * initialize before setContentView
+     *
      * @param savedInstanceState param from onCreate
      */
     protected void init(Bundle savedInstanceState) {
@@ -42,10 +43,9 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     }
 
-
     protected <T extends View> T $(int id) {
         //noinspection unchecked
-        return (T) super.findViewById(id);
+        return (T) findViewById(id);
     }
 
 

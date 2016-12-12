@@ -12,13 +12,17 @@ public abstract class BaseEntryActivity extends BaseActivity {
         if (beforeOnBackPressed()) {
             long currentTick = System.currentTimeMillis();
             if (currentTick - lastBackKeyDownTick > MAX_DOUBLE_BACK_DURATION) {
-                MyToastUtils.showShortToastSafeNew(this, R.string.click_one_more_time_to_exit);
+                MyToastUtils.showShortToastSafeNew(this, getExitHintResourceID());
                 lastBackKeyDownTick = currentTick;
             } else {
                 finish();
                 System.exit(0);
             }
         }
+    }
+
+    protected int getExitHintResourceID() {
+        return R.string.click_one_more_time_to_exit;
     }
 
     protected boolean beforeOnBackPressed() {

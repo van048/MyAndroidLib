@@ -1,4 +1,4 @@
-package ben.cn.library.activity;
+package ben.cn.library.ui.activity;
 
 import ben.cn.library.R;
 import ben.cn.library.utils.MyToastUtils;

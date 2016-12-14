@@ -7,11 +7,9 @@ import static com.google.common.base.Preconditions.checkNotNull;
 
 public abstract class BaseFragment extends Fragment {
 
-    protected View mRootView;
-
     protected <T extends View> T $(int id) {
-        checkNotNull(mRootView);
+        checkNotNull(getView());
         //noinspection unchecked
-        return (T) mRootView.findViewById(id);
+        return (T) getView().findViewById(id);
     }
 }

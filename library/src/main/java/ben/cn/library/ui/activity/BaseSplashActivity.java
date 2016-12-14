@@ -26,4 +26,10 @@ public abstract class BaseSplashActivity extends BaseActivity {
     protected abstract Class<?> getJumpingActivityClass();
 
     protected abstract long getSplashDuration();
+
+    @Override
+    protected boolean beforeOnBackPressed() {
+        // disable double-click-to-exit
+        return false;
+    }
 }

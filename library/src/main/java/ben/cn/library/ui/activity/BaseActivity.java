@@ -63,6 +63,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    // double click to exit
     @Override
     public void onBackPressed() {
         if (beforeOnBackPressed()) {

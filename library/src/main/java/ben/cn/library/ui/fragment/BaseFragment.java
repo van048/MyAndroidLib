@@ -12,6 +12,4 @@ public abstract class BaseFragment extends Fragment {
         //noinspection unchecked
         return (T) mView.findViewById(id);
     }
-
-    protected abstract void setUpView();
 }

@@ -5,7 +5,7 @@ import android.view.View;
 
 public abstract class BaseFragment extends Fragment {
 
-    private View mView;
+    protected View mView;
 
     protected <T extends View> T $(int id) {
         assert mView != null;

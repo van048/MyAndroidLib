@@ -14,6 +14,4 @@ public abstract class BaseFragment extends Fragment {
     }
 
     protected abstract void setUpView();
-
-    protected abstract int getContainerID();
 }

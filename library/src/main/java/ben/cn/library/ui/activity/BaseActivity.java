@@ -2,15 +2,16 @@ package ben.cn.library.ui.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import ben.cn.library.R;
+import ben.cn.library.utils.MyToastUtils;
 
 public abstract class BaseActivity extends AppCompatActivity {
-
-    private FragmentManager mFragmentManager;
+    // double click to exit
+    private long lastBackKeyDownTick = 0;
+    private static final long DEFAULT_MAX_DOUBLE_BACK_DURATION = 1500;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +34,6 @@ public abstract class BaseActivity extends AppCompatActivity {
      * @param savedInstanceState param from onCreate
      */
     protected void init(Bundle savedInstanceState) {
-        mFragmentManager = getSupportFragmentManager();
     }
 
     protected abstract int getLayoutResourceID();
@@ -61,5 +61,36 @@ public abstract class BaseActivity extends AppCompatActivity {
         Intent intent = new Intent(this, clazz);
         intent.putExtras(extras);
         startActivity(intent);
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (beforeOnBackPressed()) {
+            long currentTick = System.currentTimeMillis();
+            if (currentTick - lastBackKeyDownTick > getMaxDoubleBackDuration()) {
+                MyToastUtils.showShortToastSafeNew(this, getExitHintResourceID());
+                lastBackKeyDownTick = currentTick;
+            } else {
+                finish();
+                System.exit(0);
+            }
+        }
+    }
+
+    protected long getMaxDoubleBackDuration() {
+        return DEFAULT_MAX_DOUBLE_BACK_DURATION;
+    }
+
+    protected int getExitHintResourceID() {
+        return R.string.default_double_click_exit_hint;
+    }
+
+    /**
+     * do sth before ready-to-exit
+     *
+     * @return if return true, then double-click-to-exit is enabled
+     */
+    protected boolean beforeOnBackPressed() {
+        return true;
     }
 }

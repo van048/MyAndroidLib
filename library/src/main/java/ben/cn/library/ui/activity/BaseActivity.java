@@ -75,6 +75,8 @@ public abstract class BaseActivity extends AppCompatActivity {
                 finish();
                 System.exit(0);
             }
+        } else {
+            super.onBackPressed();
         }
     }
 

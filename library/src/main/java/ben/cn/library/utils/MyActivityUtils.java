@@ -12,6 +12,9 @@ import com.blankj.utilcode.utils.ActivityUtils;
 import static com.google.common.base.Preconditions.checkNotNull;
 
 public class MyActivityUtils {
+    private MyActivityUtils() {
+        throw new UnsupportedOperationException("u can't instantiate me...");
+    }
 
     public static void addFragmentToActivity(@NonNull FragmentManager fragmentManager,
                                              @NonNull Fragment fragment, int frameId) {

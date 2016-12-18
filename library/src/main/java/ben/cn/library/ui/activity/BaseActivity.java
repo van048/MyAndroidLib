@@ -69,7 +69,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         if (beforeOnBackPressed()) {
             long currentTick = System.currentTimeMillis();
             if (currentTick - lastBackKeyDownTick > getMaxDoubleBackDuration()) {
-                MyToastUtils.showShortToastSafeNew(this, getExitHintResourceID());
+                MyToastUtils.showShortToastSafe(this, getExitHintResourceID(), true);
                 lastBackKeyDownTick = currentTick;
             } else {
                 finish();

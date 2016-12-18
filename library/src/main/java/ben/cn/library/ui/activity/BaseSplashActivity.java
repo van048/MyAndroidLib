@@ -1,5 +1,6 @@
 package ben.cn.library.ui.activity;
 
+import android.os.Bundle;
 import android.os.Handler;
 
 import ben.cn.library.R;
@@ -12,7 +13,7 @@ public abstract class BaseSplashActivity extends BaseActivity {
     }
 
     @Override
-    protected void setUpView() {
+    protected void setUpView(Bundle savedInstanceState) {
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override

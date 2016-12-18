@@ -20,8 +20,8 @@ public abstract class BaseActivity extends AppCompatActivity {
 
         init(savedInstanceState);
         setContentView(getLayoutResourceID());
-        setUpView();
-        setUpData();
+        setUpView(savedInstanceState);
+        setUpData(savedInstanceState);
     }
 
     protected int getThemeResourceID() {
@@ -38,11 +38,11 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     protected abstract int getLayoutResourceID();
 
-    protected void setUpView() {
+    protected void setUpView(Bundle savedInstanceState) {
 
     }
 
-    protected void setUpData() {
+    protected void setUpData(Bundle savedInstanceState) {
 
     }
 
